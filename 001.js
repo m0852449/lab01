@@ -1,0 +1,12 @@
+$(document).ready(function(){
+    $("button#game1").click(function(){
+		$(".content").css("background-color","transparent");
+		$("div.content").empty();
+        $("div.content").load("a.html");
+    });
+	$("button#game2").click(function(){
+		$(".content").css("background-color","transparent");
+		$("div.content").empty();
+		$("div.content").load("b.html");
+	});
+});

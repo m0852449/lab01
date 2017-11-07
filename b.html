@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+body{
+	background-color: #99ff33;
+}
+</style>
+
+</head>
+<body>
+<p id="de">猜數字規則<br>
+1.輸入開頭不為零的4位數字<br>
+2.猜對數字與位置則會顯示ＯA ex:答案為1234 猜1567則會顯1A<br>
+3.若猜對數字但位置錯誤則會顯示ＯB ex:答案為1234 猜5167則顯示1B<br>
+</p>
+<input id="guess" type="text" onkeypress="keyboard(event)"></input><button id="gg" onclick="guess2()">GUESS IT</button>
+<h1 id="de2"></h1>
+<h1 id="de3"></h1>
+<script>
+//function number(){
+	var ans=[];
+	var count=0;
+	var good=document.getElementById("de3");
+	ans[0]=Math.floor(Math.random()*(10 - 1)) +1;//1~9;
+	do{
+		ans[1]=Math.floor(Math.random()*(10 - 0));  //0~9;
+		do{
+			ans[2]=Math.floor(Math.random()*(10 - 0));  //0~9;
+			do{
+				ans[3]=Math.floor(Math.random()*(10 - 0));  //0~9;
+			}
+			while(ans[3]==ans[0]||ans[3]==ans[1]||ans[3]==ans[2]);
+		}while(ans[2]==ans[0]||ans[2]==ans[1]);
+	}while(ans[1]==ans[0]);
+	//document.getElementById("demo").innerHTML=ans;//答案
+
+function keyboard(event){
+	var code=event.keyCode;
+	if(code==13){
+	document.getElementById("gg").click();
+	}
+}
+function guess2(){
+	var x =document.getElementById("guess").value;
+	var A=0,B=0,a,b;
+	var n= Number(x);
+	var inn = new Array(4);
+	if(isNaN(x)){
+		alert("請輸入數字");
+		}
+	else if(n>10000||n<1000){
+		alert("請輸入4位數或開頭不為零的4位數");
+		}
+	inn[0]=Math.floor(n/1000);
+	inn[1]=Math.floor(n%1000/100);
+	inn[2]=Math.floor(n%100/10);
+	inn[3]=Math.floor(n%10);
+	document.getElementById("de2").innerHTML="你輸入的數字"+inn;
+	for(a=0;a<4;a++){
+		for(b=0;b<4;b++){
+			if(inn[a]==ans[b]&&a==b)
+				A++;
+			else if(inn[a]==ans[b]&&a!=b)
+				B++;
+			}
+	}
+	count++;
+	if(A==4){
+	good.innerHTML=A+"A"+B+"B";
+	alert("Bingo!! 共猜了"+count+"次");
+	}
+	else good.innerHTML=A+"A"+B+"B";
+	
+}
+</script>
+
+
+</body>
+</html>

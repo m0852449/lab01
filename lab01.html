@@ -1,0 +1,63 @@
+
+<html>
+<head>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js">
+</script>
+<meta charset="UTF-8">
+<style>
+body{
+	margin:0;
+
+	}
+.hed{
+	text-align:center;
+	padding:20px;
+	height:15%;
+	color:#fffaf3;
+	font-weight:bold;
+	background-color:blue;
+ }
+.table{
+	float:left;
+	width:15%;
+	height:85%;
+	background-color:green;
+}
+#choice1,#choice2,#choice3{
+	text-align:center;
+	background-color:yellow;
+	margin:2px 0px;
+	border-bottom: 3px groove red;
+	}
+#choice1:hover,#choice2:hover,#choice3:hover{
+	background-color: #0099cc;
+	}
+.content{
+	float:right;
+	width:85%;
+	height:85%;
+	background-color:red;
+  }
+
+</style>
+<script type="text/javascript"  src="001.js"></script>
+
+
+</head>
+<body>
+
+<div class="hed"><h1>玩具</h1></div>
+<div class="table">
+	<div id="choice1"><button id="game1">終極密碼</button></div>
+	<div id="choice2"><button id="game2">猜數字</div>
+	<div id="choice3">google</div>
+	
+
+</div>
+<div class="content" id = "go">
+
+</div>
+
+
+</body>
+</html>

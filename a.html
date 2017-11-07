@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+body{
+	background-color:#47d147;
+}
+</style>
+
+</head>
+<body>
+<h1>Guess the number from 1~100(exclude 1 and 100)</h1>
+
+<input id="num" type="text" value="" onkeypress="keyboard(event)"></input><button id="qq" onclick="guess()" >click me</button>
+<p id = "demo"></p>
+<script>
+var y=Math.floor(Math.random()*(100-2)+2);
+var count=1,max=100,min=1;
+function keyboard(event){
+	var code=event.keyCode;
+	if(code==13){
+	document.getElementById("qq").click();
+	}
+}
+function guess(){
+	var x = document.getElementById("num").value;
+	var rout=document.getElementById("demo");
+	var n =Number(x);
+	/*document.getElementById("demo").innerHTML=y;*/
+	if(isNaN(x))
+	{
+		alert("請輸入數字");
+		
+	}
+	else if(n>=max||n<=min)
+	{
+		alert("請輸入範圍內數字");
+
+	}
+	else if(n>y)
+	{
+		rout.innerHTML="the numer range"+min+"~"+ x;
+		max=x;
+		count++;
+	}
+	else if(n<y)
+	{
+		rout.innerHTML="the numer range"+x+"~"+max;
+		min=x;
+		count++;
+	}
+	else if(n==y)
+	{
+		alert("猜對了!!!  你猜了"+count+"次");
+	}
+
+}	
+</script>
+
+</body>
+</html>
